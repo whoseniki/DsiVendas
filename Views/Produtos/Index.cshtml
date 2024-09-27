@@ -25,8 +25,7 @@
         <td>@produto.Preco.ToString("C")</td>
         <td>@produto.Fornecedor.Nome - @produto.Fornecedor.Telefone</td>
         <td>
-          <a asp-action="Editar" asp-route-id="@produto.Id" class="btn btn-warning">Editar</a>
-          <a asp-action="Detalhes" asp-route-id="@produto.Id" class="btn btn-info">Detalhes</a> 
+          <a asp-action="Editar" asp-route-id="@produto.Id" class="btn btn-warning">Editar</a> 
           
           <form asp-action="Remover" asp-route-id="@produto.Id" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
                         <button type="submit" class="btn btn-danger">Excluir</button>

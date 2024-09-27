@@ -25,8 +25,7 @@
                 <td>@fornecedor.Cidade</td>
                 <td>@fornecedor.Telefone</td>
                 <td>
-                    <a asp-action="Editar" asp-route-id="@fornecedor.Id" class="btn btn-warning">Editar</a> |
-                    <a asp-action="Detalhes" asp-route-id="@fornecedor.Id" class="btn btn-info">Detalhes</a> |
+                    <a asp-action="Editar" asp-route-id="@fornecedor.Id" class="btn btn-warning">Editar</a> | |
                     
                     <form asp-action="Remover" asp-route-id="@fornecedor.Id" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este fornecedor?');">
                         <button type="submit" class="btn btn-danger">Excluir</button>

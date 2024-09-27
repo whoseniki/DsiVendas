@@ -58,4 +58,49 @@ public class VendasController(ApplicationDbContext context) : Controller
             ViewBag.Produtos = new SelectList(context.Produtos, "Id", "Nome");
             return View(venda);
         }
+
+        public IActionResult Editar(int id)
+        {
+         var venda = context.Vendas.Find(id);
+         if (venda == null)
+         {
+           return NotFound();
+         }
+         return View(venda);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Venda venda)
+        {
+            var vendaExistente = context.Vendas.Find(venda.Id);
+            if (vendaExistente == null)
+            {
+              return NotFound();
+            }
+            vendaExistente.Cliente = venda.Cliente;
+            vendaExistente.DataVenda = venda.DataVenda;
+            vendaExistente.FormaPagamento = venda.FormaPagamento;
+            context.Update(vendaExistente); 
+            context.SaveChanges(); 
+            return RedirectToAction("Index");
+            
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Remover(int id)   
+        {
+          var venda = await context.Vendas.FindAsync(id);
+          if (venda == null)
+          {
+            return NotFound();
+          }
+
+          context.Vendas.Remove(venda);
+          await context.SaveChangesAsync();
+          return RedirectToAction(nameof(Index));
+        }
     }
+    
+    
+
+    

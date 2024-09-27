@@ -28,8 +28,7 @@
         <td>@cliente.Endereco</td>
         <td>@cliente.Telefone</td>
         <td>
-          <a asp-action="Editar" asp-route-id="@cliente.Id" class="btn btn-warning">Editar</a>|
-          <a asp-action="Detalhes" asp-route-id="@cliente.Id" class="btn btn-info">Detalhes</a> |
+          <a asp-action="Editar" asp-route-id="@cliente.Id" class="btn btn-warning">Editar</a>| |
 
           <form asp-action="Remover" asp-route-id="@cliente.Id" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este cliente?');">
                         <button type="submit" class="btn btn-danger">Excluir</button>
